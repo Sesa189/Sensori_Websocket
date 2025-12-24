@@ -15,7 +15,7 @@ while True:
     value = round(random.uniform(1010, 1025), 2)
 
     payload = {
-        "sensor": "temperature",
+        "sensor": "pressure",
         "value": value,
         "unit": "hPa"
     }

@@ -4,7 +4,7 @@ import json
 import paho.mqtt.client as mqtt
 
 BROKER = "test.mosquitto.org"
-TOPIC = "cesare/sensor/humidty"
+TOPIC = "cesare/sensor/humidity"
 
 client = mqtt.Client()
 client.connect(BROKER, 1883)
@@ -15,7 +15,7 @@ while True:
     value = round(random.uniform(97, 100), 2)
 
     payload = {
-        "sensor": "temperature",
+        "sensor": "humidity",
         "value": value,
         "unit": "%"
     }

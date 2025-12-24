@@ -14,14 +14,22 @@ import tornado.websocket
 import aiomqtt
 
 BROKER = "test.mosquitto.org"
-TOPIC = "cesare/sensor/temperature"
+TOPIC = "cesare/sensor/#"
 
 clients = set()
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.html")
+        category = self.get_argument("category", "").strip()
 
+        if category == "temperature":
+            self.render("temperature.html")
+        elif category == "humidity":
+            self.render("humidity.html")
+        elif category == "pressure":
+            self.render("pressure.html")
+        else:
+            self.render("index.html")
 
 class WSHandler(tornado.websocket.WebSocketHandler):
     def check_origin(self, origin):
