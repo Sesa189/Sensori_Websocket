@@ -12,7 +12,7 @@ client.connect(BROKER, 1883)
 print("Sensore simulato avviato")
 
 while True:
-    value = round(random.uniform(97, 100), 2)
+    value = round(random.uniform(90, 100), 2)
 
     payload = {
         "sensor": "humidity",
